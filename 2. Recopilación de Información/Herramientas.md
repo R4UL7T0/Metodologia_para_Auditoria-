@@ -28,12 +28,6 @@ Mails.org
 
 Busca brechas en internet donde se filtró datos personales de email
 
-## Nmap
-
-nmap -p- -Pn -sS —min-rate 5000 —open IP -n 
-
-nmap -sCV -pPORTS IP
-
 ## Cupp
 
 Generador de contraseñas a partir de los datos de la victima
