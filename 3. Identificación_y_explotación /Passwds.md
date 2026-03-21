@@ -23,3 +23,9 @@ Relleno de contraseñas:
 ```bash
 mp66 ‘?l?l<RESTO_DE_PASSWD>’ (?l en los caracteres para rellenar)
 ```
+# Cewl
+
+Herramienta para crear diccionarios con las palabras principales de la página web
+```bash
+cewl http://IP/ -w archivo.txt
+```
