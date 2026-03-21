@@ -23,9 +23,14 @@ Relleno de contraseñas:
 ```bash
 mp66 ‘?l?l<RESTO_DE_PASSWD>’ (?l en los caracteres para rellenar)
 ```
-# Cewl
+## Cewl
 
 Herramienta para crear diccionarios con las palabras principales de la página web
 ```bash
 cewl http://IP/ -w archivo.txt
+```
+## Hashcat
+Herramienta para recuperar contraseñas
+```bash
+hashcat -m 3200 hash.txt /usr/..rockyou
 ```
