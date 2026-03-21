@@ -13,3 +13,9 @@ curl -s “http://<IP>:PORT/API” \
 
 -H “Cookie: session=<TOKEN_JWT_SESSION>” | grep -E ‘csrf|token|_token’ -i
 ```
+## Conseguir jwt_token
+
+Desde consola web:
+```bash
+localStorage.getItem(’jwt_token’)
+```
