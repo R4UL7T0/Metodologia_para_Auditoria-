@@ -54,6 +54,6 @@ Tendria que salir algo como:
 
 ## Payload:
 
-Todo lo anterior se ejecuta en maquina local, para obtener una shell si el Payload es exito. Hay que usarlo en el servidor vulnerable.
+Todo lo anterior se ejecuta en maquina local. Para obtener una shell hay que usarlo en el servidor vulnerable.
 
 Ahora conociendo el offset y las vulnerabilidades de seguridad del binario se decide el vector de ataque.
