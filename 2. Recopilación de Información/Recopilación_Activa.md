@@ -8,12 +8,31 @@ Analiza el trafico de red.
 
 ## NMAP
 
-Sudo nmap -sn IP : Identifica si los nodos de red están corriendo o no.
+Básico:
 
-Sudo nmap  -PS IP : Lista los puertos de la maquina destino. (-p elige un puerto especifico y genera menos trafico de red)
-
-Sudo nmap -sS IP : Analiza los puertos del sistema, haciendo peticiones a cada uno de manera individual
-
+```bash
 nmap -p- -Pn -sS —min-rate 5000 —open IP -n 
 
 nmap -sCV -pPORTS IP
+```
+
+Para reportes:
+
+```bash
+nmap -p<PUERTOS>-sCV <IP> -oX <NOMBRE_ARCHIVO>
+
+xsltproc <nombre_archivo> -o archivo.html
+```
+
+Avanzado:
+
+```bash
+# Escaneo silencioso a puerto
+nmap -sn -n -PS<PUERTO> IP 
+
+#Escaneo silencioso a 5 puertos (Arriba de 5 ya es facilmente detectable) 
+sudo nmap -sS -n --top-ports 5 IP
+
+# Fragmentación de paquetes para evadir firewalls
+sudo nmap -sS -n -ff -p<PUERTO> IP
+```
