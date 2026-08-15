@@ -2,8 +2,8 @@ Comando para ver qué capacidades especiales tiene asignados un archivo ejecutab
 
 ```bash
 getcap -r / 2>/dev/null
+
+/sbin/getcap -r / 2>/dev/null
+
 ```
 
-Revisar capabilities de usuario
-
-Explotación binarios con Capability 
